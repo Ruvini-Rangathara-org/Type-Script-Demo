@@ -1,22 +1,34 @@
-//primitives - number, string, boolean
-function sendSum(num1, num2, name, isWithName) {
-    var result = isWithName ? "Hi ".concat(name, ", Sum is : ").concat(num1 + num2) : "Sum is : ".concat(num1 + num2);
-    return result;
+//functions
+//return type is number
+function findSum(num1, num2) {
+    return num1 + num2;
 }
-var result1 = sendSum(10, 40, 'Ruvini', false);
-console.log(result1);
-var result2 = sendSum(1, 4, 'Rangathara', true);
-console.log(result2);
-function getSum() {
-    var args = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        args[_i] = arguments[_i];
-    }
-    var sum = 0;
-    for (var i = 0; i < args.length; i++) {
-        sum += args[i];
-    }
-    return sum;
+var result = findSum(10, 30);
+console.log("Result : " + result);
+////////////////////////////////////////////////////////////////////
+function isMax(num2) {
+    var num1 = 20;
+    return num1 < num2;
 }
-var result3 = getSum(1, 2, 3, 4, 5);
-console.log(result3);
+var num2 = 10;
+var result2 = isMax(num2);
+console.log(result2 ? "".concat(num2, " is Max") : "".concat(num2, " is Min"));
+////////////////////////////////////////////////////////////////////
+//arrow function
+var findSumInString = function (num1, num2) {
+    return "Sum is ".concat(num1 + num2);
+};
+console.log(findSumInString(10, 89));
+///////////////////////////////////////////////////////////////////
+function find(num1, num2) {
+    if (typeof num1 === 'string' || typeof num2 === 'string') { // type guard
+        return +num1 + +num2; // convert to numbers
+    }
+    else {
+        num1 + num2;
+    }
+}
+var number1 = find(30, 90);
+console.log('find : ' + number1);
+var number2 = find('45', 90);
+console.log('find : ' + number2);
